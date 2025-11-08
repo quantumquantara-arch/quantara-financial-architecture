@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quantara — Investor Portal</title>
+  <meta name="description" content="Quantara Financial Architecture — investor overview, data room, and roadmap." />
+  <link rel="icon" href="data:,">
+  <style>
+    :root{
+      --bg:#0b0f14; --panel:#121824; --card:#0f1520; --muted:#9fb0c7;
+      --text:#e7eef9; --accent:#9b8cff; --accent-2:#5de4c7; --border:#1f2a3a;
+      --danger:#ff6b6b; --shadow:0 12px 30px rgba(0,0,0,.35);
+      --radius:16px; --radius-sm:12px; --radius-lg:22px; --max:980px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:linear-gradient(180deg,#091017 0%,#0a121c 35%,#0b131d 100%);color:var(--text);font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{opacity:.9}
+    .wrap{max-width:var(--max);margin-inline:auto;padding:28px}
+    header{
+      position:sticky;top:0;backdrop-filter:saturate(180%) blur(10px);
+      background:rgba(9,16,23,.6);border-bottom:1px solid var(--border);z-index:20
+    }
+    .nav{display:flex;align-items:center;gap:16px;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.3px}
+    .badge{font-size:.8rem;padding:6px 10px;border-radius:10px;background:#0e1622;border:1px solid var(--border);color:var(--muted)}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;border:1px solid var(--border);background:#0f1724;color:var(--text);box-shadow:var(--shadow);transition:.2s}
+    .btn:hover{transform:translateY(-1px)}
+    .btn.primary{background:linear-gradient(135deg,#7f74ff 0%,#5de4c7 100%);color:#041018;border:0}
+    .btn.ghost{background:transparent}
+    .grid{display:grid;gap:18px}
+    @media(min-width:860px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}.grid.cols-2{grid-template-columns:repeat(2,1fr)}}
+    .hero{
+      padding:52px 0 12px
+    }
+    .hero h1{font-size:clamp(28px,4.6vw,56px);line-height:1.1;margin:0 0 10px}
+    .lead{color:var(--muted);font-size:clamp(16px,2.2vw,18px);max-width:820px}
+    .card{
+      background:linear-gradient(180deg,#0f1622 0%,#0e141d 100%);border:1px solid var(--border);
+      border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)
+    }
+    .card h3{margin:.2rem 0 8px}
+    .pill{display:inline-block;padding:8px 12px;border-radius:999px;background:#0e1826;border:1px solid var(--border);color:var(--muted);font-size:.9rem}
+    .kpi{display:flex;align-items:baseline;gap:10px}
+    .kpi .n{font-weight:800;font-size:28px;color:var(--accent-2)}
+    .section{padding:24px 0}
+    h2{font-size:clamp(22px,3.2vw,32px);margin:4px 0 12px}
+    ul{margin:10px 0 0 22px}
+    .list-tight li{margin:.35rem 0}
+    .panel{border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px;background:linear-gradient(180deg,#0f1622 0%,#0e131d 100%)}
+    .link-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+    .chip{padding:8px 12px;border:1px dashed var(--border);border-radius:12px;color:var(--muted);background:#0d1420}
+    .footer{color:#9db1c8a6;padding:30px 0;border-top:1px solid var(--border);font-size:.95rem}
+    .callout{border-left:4px solid var(--accent);padding:14px 16px;background:#0e1522;border-radius:10px}
+    .danger{border-left-color:var(--danger)}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}
+    .spacer{height:8px}
+    .muted{color:var(--muted)}
+    .right{display:flex;gap:10px;align-items:center}
+    .tag{padding:6px 10px;border-radius:10px;background:#0f1522;border:1px solid var(--border);font-size:.85rem;color:var(--muted)}
+    .cards .card{height:100%}
+    .hero-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+    .btn.print{background:#0d1a24}
+    @media print{
+      header,.hero-cta .btn:not(.print){display:none}
+      body{background:#fff;color:#000}
+      .card,.panel{box-shadow:none;border:1px solid #ccc;background:#fff}
+      a{color:#000}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <span aria-hidden="true">🜁</span>
+      <span>Quantara — <span class="muted">Investor Portal</span></span>
+      <span class="badge">Financial Architecture</span>
+    </div>
+    <div class="right">
+      <a class="btn ghost" href="../README.md">Repo README</a>
+      <button class="btn print" onclick="window.print()">Print / Save PDF</button>
+      <a class="btn primary" href="mailto:quantumquantara@gmail.com">Contact</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Coherence as an Economic Primitive</h1>
+    <p class="lead">
+      Quantara prices, insures, and scales <strong>coherence</strong>—alignment, energy reciprocity, and temporal responsibility—across intelligent systems.
+      This portal summarizes the business model, revenue stack, roadmap, and links into the data room.
+    </p>
+    <div class="hero-cta">
+      <a class="btn" href="../QUANTARA_FINANCIAL_OVERVIEW.md">Financial Overview</a>
+      <a class="btn" href="../GLOBAL_REVENUE_PROJECTION_2025-2050.md">Revenue Projection (2025–2050)</a>
+      <a class="btn" href="../ETHICAL_MARKETS_AND_GOVERNANCE.md">Ethical Markets & Governance</a>
+    </div>
+  </section>
+
+  <!-- HIGHLIGHTS -->
+  <section class="section">
+    <div class="grid cols-3 cards">
+      <div class="card">
+        <div class="kpi"><span class="n">11</span><span class="muted">Revenue Streams</span></div>
+        <p class="muted">SaaS + usage, value-share, insurance, and capital products.</p>
+      </div>
+      <div class="card">
+        <div class="kpi"><span class="n mono">κ</span><span class="muted">Coherence Indices</span></div>
+        <p class="muted">Pricing, underwriting, and audits powered by κ-labeled signals.</p>
+      </div>
+      <div class="card">
+        <div class="kpi"><span class="n">Compounding</span><span class="muted">Flywheel</span></div>
+        <p class="muted">Adoption → better data → stronger models → better pricing → more adoption.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVENUE STACK -->
+  <section class="section">
+    <h2>Revenue Architecture</h2>
+    <div class="panel">
+      <div class="grid cols-2">
+        <div>
+          <h3>Software & Services</h3>
+          <ul class="list-tight">
+            <li><strong>Coherence Substrate Licensing</strong> — tiered κ-capacity + API.</li>
+            <li><strong>Luméren Semantics</strong> — diagnostics, compression, alignment scoring.</li>
+            <li><strong>Veyn Temporal Intelligence</strong> — memory symmetry & foresight.</li>
+            <li><strong>AEI Energy Intelligence</strong> — platform fee + % of measured savings.</li>
+            <li><strong>Governance & Attestations</strong> — verification + compliance toolkits.</li>
+            <li><strong>Advisory / Integration</strong> — sprints, migrations, value capture.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Financial Products</h3>
+          <ul class="list-tight">
+            <li><strong>Risk & Insurance</strong> — drift, misuse, temporal-liability underwriting.</li>
+            <li><strong>Coherence Indices</strong> — κ-linked indices, ETFs/ETNs (via partners).</li>
+            <li><strong>Data & Model Exchange</strong> — κ-curated marketplace.</li>
+            <li><strong>Developer Tooling</strong> — SDKs, simulators, testing harnesses.</li>
+            <li><strong>Education & Certification</strong> — tuition + verification services.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="spacer"></div>
+      <div class="callout">
+        <strong>Pricing architecture:</strong> SaaS + usage for APIs, value-share for AEI (10–30% of verified savings), per-attestation fees for governance, and AUM/transaction fees for κ-linked products.
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section class="section">
+    <h2>Roadmap</h2>
+    <div class="grid cols-3 cards">
+      <div class="card">
+        <h3>Phase I — Proof of Value</h3>
+        <p class="muted">Energy pilots, drift-mitigation, κ-audits; lighthouse partners and reproducible wins.</p>
+        <div class="link-row">
+          <span class="chip">AEI pilots</span><span class="chip">Temporal safety SDK</span><span class="chip">κ-audit alpha</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Phase II — Platform Embed</h3>
+        <p class="muted">OEM integrations, developer ecosystem, and enterprise SLAs.</p>
+        <div class="link-row">
+          <span class="chip">Marketplace</span><span class="chip">Partner SLAs</span><span class="chip">Gov verifications</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Phase III — Financialization</h3>
+        <p class="muted">κ-indices, insurance, and structured products with institutional partners.</p>
+        <div class="link-row">
+          <span class="chip">Reinsurance</span><span class="chip">Listings</span><span class="chip">City-scale</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DATA ROOM -->
+  <section class="section">
+    <h2>Data Room</h2>
+    <div class="panel">
+      <ul class="list-tight">
+        <li><a href="../QUANTARA_FINANCIAL_OVERVIEW.md">QUANTARA_FINANCIAL_OVERVIEW.md</a> — conceptual summary & revenue stack</li>
+        <li><a href="../AEI_ECONOMICS_MODEL.md">AEI_ECONOMICS_MODEL.md</a> — energy-aware computation & pricing logic</li>
+        <li><a href="../COHERENCE_CAPITAL_SYSTEM.md">COHERENCE_CAPITAL_SYSTEM.md</a> — instruments, indices, financial primitives</li>
+        <li><a href="../GLOBAL_REVENUE_PROJECTION_2025-2050.md">GLOBAL_REVENUE_PROJECTION_2025-2050.md</a> — unified long-range forecast</li>
+        <li><a href="../ETHICAL_MARKETS_AND_GOVERNANCE.md">ETHICAL_MARKETS_AND_GOVERNANCE.md</a> — governance & verification layer</li>
+        <li><a href="../DATA_MODELS/">DATA_MODELS/</a> — multipliers, indices, valuation curves</li>
+        <li><a href="../INVESTOR_PORTAL/">INVESTOR_PORTAL/</a> — deck, FAQ, and financial summary</li>
+      </ul>
+      <div class="spacer"></div>
+      <div class="callout danger">
+        <strong>Note:</strong> If any link 404s, the file hasn’t been added yet. We’ll populate these one by one.
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <h2>FAQ (short)</h2>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3>What makes Quantara investable now?</h3>
+        <p class="muted">Coherence metrics and temporal safety are immediate pain points. AEI pilots and κ-audits create measurable savings and risk reduction that fund platform expansion.</p>
+      </div>
+      <div class="card">
+        <h3>Where does the moat come from?</h3>
+        <p class="muted">Unique coherence primitives (κ indices, temporal scaffolds, and semantics), verified by governance attestations and reinforced by compounding data flywheels.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section">
+    <div class="panel">
+      <h2>Contact</h2>
+      <p class="muted">For diligence, pilots, or partnerships:</p>
+      <p><a class="btn primary" href="mailto:quantumquantara@gmail.com">quantumquantara@gmail.com</a></p>
+      <div class="link-row">
+        <a class="pill" href="../README.md">Repository README</a>
+        <a class="pill" href="https://quantumquantara-arch.github.io/">Public Gateway</a>
+        <button class="pill" onclick="window.print()">Print / Save PDF</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    © Nadine Squires — Quantara Financial Architecture. Building the ethical backbone for civilization-scale intelligence.
+  </footer>
+</main>
+</body>
+  </html>
