@@ -3,274 +3,173 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Quantara Financial Architecture — Investor Portal</title>
+  <title>Quantara Financial Architecture — Unified Investor Portal</title>
   <meta name="description" content="Planetary-scale financial framework for coherence-intelligent economies — integrating energy-aware economics, ethical markets, and temporal equity through Quantara’s Coherence Architecture."/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#0b0f14;--card:#111722;--ink:#e7ecf3;--muted:#a8b3c7;--accent:#a78bfa;--accent-2:#7dd3fc;--good:#34d399;--warn:#f59e0b;--pill:#192030;--bd:#233044;
-    }
-    *{box-sizing:border-box}
+    :root{--bg:#0b0f14;--card:#111722;--ink:#e7ecf3;--muted:#a8b3c7;--accent:#a78bfa;--accent2:#7dd3fc;--good:#34d399;--warn:#f59e0b;--bd:#233044;}
     html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;line-height:1.55}
     a{color:var(--accent);text-decoration:none}
     a:hover{text-decoration:underline}
-    .wrap{max-width:1100px;margin:0 auto;padding:28px 18px 80px}
-    header{display:flex;gap:16px;align-items:center;justify-content:space-between;margin-bottom:22px}
-    .brand{font-weight:800;letter-spacing:.2px}
-    nav a{margin-left:18px;color:var(--muted);font-weight:600}
-    nav a.active, nav a:hover{color:var(--ink)}
-    .hero{background:linear-gradient(180deg,rgba(167,139,250,.08),rgba(125,211,252,.05));border:1px solid var(--bd);border-radius:16px;padding:28px;margin:8px 0 20px}
-    h1{font-size:34px;line-height:1.1;margin:0 0 8px}
-    .sub{color:var(--muted);max-width:860px}
-    .row{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}
-    @media (max-width:960px){.row{grid-template-columns:1fr}}
+    .wrap{max-width:1100px;margin:auto;padding:30px 20px 80px}
+    header{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;margin-bottom:24px}
+    .brand{font-weight:800;font-size:20px}
+    nav a{margin-left:16px;color:var(--muted);font-weight:600}
+    nav a:hover,nav a.active{color:var(--ink)}
     section{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:22px;margin:14px 0}
+    h1{font-size:34px;margin:0 0 10px}
     h2{font-size:22px;margin:0 0 14px}
-    h3{font-size:17px;margin:18px 0 8px}
-    p{margin:10px 0}
-    ul{margin:8px 0 8px 22px}
-    li{margin:6px 0}
-    .pill{display:inline-block;background:var(--pill);padding:6px 10px;border-radius:999px;border:1px solid var(--bd);color:var(--ink);font-size:12px;margin:4px 6px 0 0}
-    .grid{display:grid;gap:14px}
-    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
-    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
-    @media (max-width:960px){.grid.cols-3,.grid.cols-2{grid-template-columns:1fr}}
-    .cta{display:inline-block;background:var(--accent);color:#0b0f14;padding:10px 14px;border-radius:10px;font-weight:700;margin-top:6px}
+    h3{font-size:17px;margin:16px 0 8px}
+    p,li{margin:8px 0}
+    ul{margin-left:22px}
+    pre,code{background:#0f141d;border:1px solid var(--bd);border-radius:10px;padding:12px;overflow:auto;font-family:ui-monospace,monospace}
+    .pill{display:inline-block;background:#192030;border:1px solid var(--bd);border-radius:999px;padding:5px 10px;font-size:12px;margin:3px;color:var(--ink)}
     .note{color:var(--muted);font-size:14px}
-    code, pre{background:#0f141d;border:1px solid var(--bd);border-radius:10px;padding:14px;display:block;overflow:auto}
-    footer{margin-top:22px;color:var(--muted);font-size:14px;display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center}
-    .tag{font-weight:700;color:var(--good)}
-    .warn{color:var(--warn);font-weight:700}
-    .kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,"Liberation Mono","DejaVu Sans Mono","Courier New",monospace}
+    .cta{display:inline-block;background:var(--accent);color:#0b0f14;padding:10px 16px;border-radius:10px;font-weight:700;margin-top:6px}
+    footer{margin-top:24px;color:var(--muted);font-size:14px;display:flex;flex-wrap:wrap;justify-content:space-between}
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="brand">Quantara • <span style="color:var(--accent-2)">Financial Architecture</span></div>
-      <nav>
-        <a href="#overview" class="active">Overview</a>
-        <a href="#aei">AEI Economics</a>
-        <a href="#capital">Coherence Capital</a>
-        <a href="#projection">Global Projection</a>
-        <a href="#governance">Ethical Markets</a>
-        <a href="#data">Data Models</a>
-        <a href="#investors">Investor Portal</a>
-      </nav>
-    </header>
+<div class="wrap">
+<header>
+  <div class="brand">Quantara • <span style="color:var(--accent2)">Financial Architecture</span></div>
+  <nav>
+    <a href="#overview" class="active">Overview</a>
+    <a href="#aei">AEI</a>
+    <a href="#capital">Capital</a>
+    <a href="#projection">Projection</a>
+    <a href="#governance">Governance</a>
+    <a href="#data">Data</a>
+    <a href="#investors">Investors</a>
+  </nav>
+</header>
 
-    <div class="hero">
-      <h1>Planetary-Scale Financial Framework for Coherence-Intelligent Economies</h1>
-      <p class="sub">
-        Quantara is not only an intelligence substrate — it is a <b>financial architecture</b> that turns value into a living measure of
-        <b>alignment</b>, <b>energy reciprocity</b>, and <b>temporal responsibility</b>. This page is a readable, linkable summary for partners, investors, and researchers.
-      </p>
-      <div>
-        <span class="pill">Energy-aware economics</span>
-        <span class="pill">Ethical market primitives</span>
-        <span class="pill">Temporal equity</span>
-        <span class="pill">Drift-resistant value</span>
-      </div>
-    </div>
+<section>
+  <h1>Quantara Financial Architecture — Unified Investor Portal</h1>
+  <p><b>Quantara</b> is a planetary-scale <b>financial framework</b> for coherence-intelligent economies.  
+  It turns value into a living measure of <b>alignment</b>, <b>energy reciprocity</b>, and <b>temporal responsibility</b>.</p>
+  <div>
+    <span class="pill">Energy-aware economics</span>
+    <span class="pill">Ethical market primitives</span>
+    <span class="pill">Temporal equity</span>
+    <span class="pill">Drift-resistant value</span>
+  </div>
+</section>
 
-    <!-- OVERVIEW -->
-    <section id="overview">
-      <h2>Overview</h2>
-      <div class="row">
-        <div>
-          <p>
-            The Quantara Financial Architecture integrates four layers:
-          </p>
-          <ul>
-            <li><b>AEI — Artificial Energy Intelligence</b>: pricing that respects energy cost, ecological balance, and reciprocity.</li>
-            <li><b>Coherence Capital</b>: instruments, indices, and accounting primitives that quantify alignment and memory symmetry.</li>
-            <li><b>Ethical Markets & Governance</b>: verification, accountability, and anti-externality rules natively encoded.</li>
-            <li><b>Unified Projection (2025–2050)</b>: scenario model for revenue, value, and ecosystem growth.</li>
-          </ul>
-          <p class="note">
-            Everything here is plain text and linkable. It mirrors the GitHub docs so anyone can audit the logic.
-          </p>
-        </div>
-        <div>
-          <h3>What this enables</h3>
-          <ul>
-            <li><b>Truer prices</b> that account for energy and ecological signals.</li>
-            <li><b>Instruments</b> that reward alignment and long-term responsibility.</li>
-            <li><b>Capital flows</b> that reduce drift and brittleness in AI-driven markets.</li>
-            <li><b>Ethical compounding</b> without sacrificing the planet that makes it possible.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+<section id="overview">
+  <h2>Overview</h2>
+  <p>The Quantara Financial Stack integrates four layers:</p>
+  <ul>
+    <li><b>AEI — Artificial Energy Intelligence:</b> pricing that respects energy cost, ecological balance, and reciprocity.</li>
+    <li><b>Coherence Capital:</b> instruments, indices, and accounting primitives that quantify alignment and memory symmetry.</li>
+    <li><b>Ethical Markets & Governance:</b> verification, accountability, and anti-externality rules natively encoded.</li>
+    <li><b>Unified Projection (2025–2050):</b> scenario model for revenue, value, and ecosystem growth.</li>
+  </ul>
+  <p class="note">Everything here is readable text and mirrors the GitHub docs for transparent audit.</p>
+</section>
 
-    <!-- AEI ECONOMICS -->
-    <section id="aei">
-      <h2>AEI — Energy-Aware Economics</h2>
-      <p>
-        AEI prices computation and goods by weighting three first-class signals: <b>energy cost</b>, <b>ecological reciprocity</b>, and
-        <b>alignment impact</b>. This yields a drift-resistant metric for value that aligns short-term incentives with long-term planetary balance.
-      </p>
-
-      <h3>AEI base formula</h3>
-      <pre><code>EAE (Energy-Aware Expenditure) =
-  C_compute × κ_energy
-+ C_supply  × κ_recips
-+ C_externalities × κ_alignment
+<section id="aei">
+  <h2>AEI — Energy-Aware Economics</h2>
+  <p>AEI prices computation and goods by weighting three first-class signals: <b>energy cost</b>, <b>ecological reciprocity</b>, and <b>alignment impact</b>.</p>
+  <h3>AEI Base Formula</h3>
+  <pre><code>EAE = C_compute × κ_energy
+    + C_supply × κ_recips
+    + C_externalities × κ_alignment
 
 where:
-  C_compute        = direct computation cost (J → kWh → currency)
-  C_supply         = upstream energy/supply chain footprint
-  C_externalities  = modeled ecological & social externalities
-  κ_energy         = regional energy reciprocity factor (0..1+)
-  κ_recips         = reciprocity / circularity factor (0..1+)
-  κ_alignment      = coherence / alignment score (0..1+)</code></pre>
+C_compute        = direct computation cost (J→kWh→currency)
+C_supply         = upstream energy/supply chain footprint
+C_externalities  = modeled ecological & social externalities
+κ_energy         = regional energy reciprocity factor
+κ_recips         = circularity factor
+κ_alignment      = coherence/alignment score
+</code></pre>
+  <h3>Coherence-Weighted Price</h3>
+  <pre><code>Price_AEI = BasePrice × (1 + λ × (EAE_normalized − μ))
+λ = policy sensitivity to energy/ecology signals
+μ = neutrality baseline
+</code></pre>
+  <p class="note">If your operation improves reciprocity and alignment, you gain pricing advantage or rebate; if not, cost rises until corrected.</p>
+</section>
 
-      <h3>Coherence-Weighted Price</h3>
-      <pre><code>Price_AEI = BasePrice × (1 + λ × (EAE_normalized − μ))
-  λ = policy sensitivity to energy/ecology signals
-  μ = neutrality baseline (industry or region median)</code></pre>
+<section id="capital">
+  <h2>Coherence Capital System</h2>
+  <h3>Primitives</h3>
+  <ul>
+    <li><b>κ-Index</b> — alignment, reciprocity, and symmetry composite.</li>
+    <li><b>τ-Score</b> — foresight & obligation over time.</li>
+    <li><b>Σ-Drift</b> — brittleness/value-drift risk (lower is better).</li>
+  </ul>
+  <h3>Core Instruments</h3>
+  <ul>
+    <li><b>CCE — Coherence Credit:</b> earned by improving κ & τ; tradable, auditable.</li>
+    <li><b>CRB — Coherence Rebate:</b> automatic discount for κ-positive operations.</li>
+    <li><b>TEB — Temporal Equity Bond:</b> coupons tied to verified long-horizon stewardship.</li>
+  </ul>
+  <h3>Accounting Upgrades</h3>
+  <ul>
+    <li>Dual-ledger entries for operational & coherence value.</li>
+    <li>Capitalize verified externality reductions.</li>
+    <li>Transparent oracles for energy mix & audit trails.</li>
+  </ul>
+  <p class="note">Not “green accounting”—<b>precision economics</b> that measures system coherence.</p>
+</section>
 
-      <p class="note">Interpretation: if your product/service improves reciprocity and alignment, your price pressure falls (or gains subsidy). If it harms them, your cost rises until you fix it.</p>
-    </section>
-
-    <!-- COHERENCE CAPITAL SYSTEM -->
-    <section id="capital">
-      <h2>Coherence Capital System</h2>
-      <div class="grid cols-2">
-        <div>
-          <h3>Primitives</h3>
-          <ul>
-            <li><b>κ-Index (Coherence Index)</b> — composite of alignment, energy reciprocity, and memory symmetry.</li>
-            <li><b>τ-Score (Temporal Responsibility)</b> — foresight & obligation across horizons.</li>
-            <li><b>Σ-Drift</b> — brittleness & value-drift risk; lower is better.</li>
-          </ul>
-
-          <h3>Core Instruments</h3>
-          <ul>
-            <li><b>CCE — Coherence-Credit</b>: earned by improving κ and τ relative to peers; tradable and auditable.</li>
-            <li><b>CRB — Coherence-Rebate</b>: automatic discounting for κ-positive operations.</li>
-            <li><b>TEB — Temporal Equity Bond</b>: coupons tied to verified long-horizon stewardship.</li>
-          </ul>
-        </div>
-        <div>
-          <h3>Accounting Upgrades</h3>
-          <ul>
-            <li>Dual-ledger entries for <b>operational value</b> and <b>coherence value</b>.</li>
-            <li><b>Capitalization of verified externality reductions</b> under conservative rules.</li>
-            <li><b>Transparent oracles</b> for energy mix, climate impact, and third-party audits.</li>
-          </ul>
-          <p class="note">The aim isn’t “green accounting”—it’s <b>precision economics</b> that sees the full system.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- GLOBAL PROJECTION -->
-    <section id="projection">
-      <h2>Global Revenue Projection (2025–2050)</h2>
-      <p>
-        The projection below expresses how coherence-native products and markets scale together. The CSV lets analysts copy/paste straight into sheets.
-      </p>
-
-      <h3>Unified Scenario (abbrev. excerpt)</h3>
-      <pre><code class="kbd">year,platform_revenue_eur_b,market_services_eur_b,licenses_eur_b,carbon_coherence_eur_b,total_eur_b
+<section id="projection">
+  <h2>Global Revenue Projection 2025–2050</h2>
+  <pre><code>year,platform_eur_b,services_eur_b,licenses_eur_b,carbon_eur_b,total_eur_b
 2025,0.8,0.3,0.2,0.1,1.4
 2026,1.6,0.7,0.5,0.2,3.0
 2027,3.1,1.2,0.8,0.4,5.5
 2028,5.4,2.3,1.3,0.7,9.7
 2029,9.1,3.9,2.0,1.3,16.3
 2030,14.8,6.3,3.2,2.1,26.4
-2031,22.9,9.3,4.9,3.1,40.2
-2032,33.5,13.6,7.1,4.6,58.8
-2033,48.0,19.5,10.1,6.5,84.1
-2034,66.7,27.3,14.1,9.1,117.2
 2035,92.1,38.1,19.6,12.6,162.4
 2040,260.0,106.0,55.0,36.0,457.0
-2045,610.0,245.0,124.0,81.0,1,060.0
-2050,1,200.0,470.0,238.0,155.0,2,063.0</code></pre>
+2045,610.0,245.0,124.0,81.0,1060.0
+2050,1200.0,470.0,238.0,155.0,2063.0
+</code></pre>
+  <p class="note">Structure only — replace with verified figures as data matures.</p>
+</section>
 
-      <p class="note">Numbers are illustrative structure with compounding synergy; your private model can slot exact figures.</p>
-    </section>
+<section id="governance">
+  <h2>Ethical Markets & Governance</h2>
+  <ul>
+    <li><b>Proof-of-Foresight</b> — publish long-horizon obligations.</li>
+    <li><b>Reciprocity Attestations</b> — external ecological verification.</li>
+    <li><b>Alignment Disclosures</b> — public κ & τ scorecards.</li>
+  </ul>
+  <ul>
+    <li><b>No hidden externalities</b> — priced or blocked.</li>
+    <li><b>Right to audit</b> — cryptographic accountability.</li>
+    <li><b>Anti-drift breakers</b> — pause & reprice on Σ-Drift spikes.</li>
+  </ul>
+  <p class="note">Governance ensures <b>signal integrity</b> for civilization-scale economics.</p>
+</section>
 
-    <!-- ETHICAL MARKETS -->
-    <section id="governance">
-      <h2>Ethical Markets & Governance</h2>
-      <div class="grid cols-2">
-        <div>
-          <h3>Verification Stack</h3>
-          <ul>
-            <li><b>Proof-of-Foresight</b> — publish constraints and long-horizon duties.</li>
-            <li><b>Reciprocity Attestations</b> — third-party energy/ecology oracles.</li>
-            <li><b>Alignment Disclosures</b> — κ & τ scorecards for major releases.</li>
-          </ul>
-        </div>
-        <div>
-          <h3>Market Rules</h3>
-          <ul>
-            <li><span class="tag">No hidden externalities</span> — priced or blocked.</li>
-            <li><span class="tag">Right to audit</span> — cryptographic trails for incentives.</li>
-            <li><span class="warn">Anti-drift breakers</span> — pause & reprice on Σ-Drift spikes.</li>
-          </ul>
-        </div>
-      </div>
-      <p class="note">These rules are not bureaucracy; they’re <b>signal integrity</b> for civilization-scale compounding.</p>
-    </section>
-
-    <!-- DATA MODELS -->
-    <section id="data">
-      <h2>Data Models (Multipliers, Indices, Valuation)</h2>
-      <p>Analyst-friendly definitions for coherent pricing and valuation.</p>
-      <div class="grid cols-3">
-        <section>
-          <h3>κ (Coherence Index)</h3>
-          <ul>
-            <li>κ = f(alignment, memory symmetry, reciprocity)</li>
-            <li>Used for rebates, credits, capital weighting</li>
-          </ul>
-        </section>
-        <section>
-          <h3>τ (Temporal Responsibility)</h3>
-          <ul>
-            <li>τ = foresight × obligation × verification</li>
-            <li>Used in Temporal Equity Bonds (TEB)</li>
-          </ul>
-        </section>
-        <section>
-          <h3>Σ-Drift (Risk)</h3>
-          <ul>
-            <li>Σ = brittleness + value-drift + externality risk</li>
-            <li>Feeds circuit-breaker & repricing logic</li>
-          </ul>
-        </section>
-      </div>
-
-      <h3>CSV — Coherence Multipliers (example)</h3>
-      <pre><code class="kbd">domain,multiplier,notes
+<section id="data">
+  <h2>Data Models</h2>
+  <pre><code>domain,multiplier,notes
 aligned_energy,1.12,renewables + reciprocity verified
 closed_loop_supply,1.08,circular materials & audit trail
 temporal_stewardship,1.15,TEB obligations met 5y+
 open_alignment,1.05,public κ/τ disclosures & audits
-externality_leak,0.82,penalty: unpriced ecological cost</code></pre>
-    </section>
+externality_leak,0.82,penalty: unpriced ecological cost
+</code></pre>
+</section>
 
-    <!-- INVESTOR PORTAL -->
-    <section id="investors">
-      <h2>Investor Portal</h2>
-      <p>
-        This public page is a living summary. For private models, partnership terms, and diligence materials, contact:
-        <b>quantumquantara@gmail.com</b>
-      </p>
-      <a class="cta" href="https://quantumquantara-arch.github.io/" target="_blank" rel="noopener">Back to Quantara Main Site →</a>
-      <p class="note" style="margin-top:10px">
-        Tip: On GitHub, this same content appears under <span class="kbd">docs/index.html</span> for easy text review.
-      </p>
-    </section>
+<section id="investors">
+  <h2>Investor Portal</h2>
+  <p>This unified file serves both GitHub text view and GitHub Pages web rendering.</p>
+  <p>For private models, partnerships, or diligence materials, contact:
+  <b>quantumquantara@gmail.com</b></p>
+  <a class="cta" href="https://quantumquantara-arch.github.io/" target="_blank">Back to Main Site →</a>
+</section>
 
-    <footer>
-      <div>© Nadine Squires — Quantara Financial Architecture</div>
-      <div>Ethical compounding • Energy reciprocity • Temporal equity</div>
-    </footer>
-  </div>
+<footer>
+  <div>© Nadine Squires — Quantara Financial Architecture</div>
+  <div>Ethical Compounding • Energy Reciprocity • Temporal Equity</div>
+</footer>
+</div>
 </body>
 </html>
