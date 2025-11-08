@@ -1,436 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Quantara — Financial Architecture (Investor Portal)</title>
-<meta name="description" content="Planetary-scale financial framework for coherence-intelligent economies — integrating energy-aware economics, ethical markets, and temporal equity through Quantara’s Coherence Architecture." />
-<style>
-  :root{
-    --bg:#0b0f14; --panel:#101722; --ink:#dfe7ff; --muted:#a7b3d1;
-    --accent:#a78bfa; --accent-2:#7aa2ff; --ok:#4ade80; --warn:#fde68a;
-    --card:#0e141e; --ring: rgba(167,139,250,.35);
-  }
-  *{box-sizing:border-box}
-  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial}
-  a{color:var(--accent-2);text-decoration:none}
-  a:hover{text-decoration:underline}
-  header{position:sticky;top:0;backdrop-filter:saturate(1.2) blur(8px);background:linear-gradient(180deg, rgba(11,15,20,.85), rgba(11,15,20,.55));border-bottom:1px solid #1b2433;z-index:20}
-  .wrap{max-width:1120px;margin:auto;padding:0 20px}
-  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-  .brand{font-weight:800;font-size:20px;letter-spacing:.3px}
-  .tabs a{margin-left:18px;font-weight:600;color:var(--muted)}
-  .tabs a.active{color:var(--ink)}
-  .hero{padding:40px 0 18px}
-  h1{font-size:42px;line-height:1.15;margin:0 0 10px}
-  .lead{max-width:880px;color:var(--muted);font-size:18px}
-  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px}
-  .chip{background:#0f1a2b;border:1px solid #1f2a3f;color:#c9d6ff;padding:6px 10px;border-radius:999px;font-size:12.5px}
-  section{margin:30px 0}
-  .grid{display:grid;gap:16px}
-  @media(min-width:880px){ .grid.cols-3{grid-template-columns:repeat(3,1fr)} .grid.cols-2{grid-template-columns:repeat(2,1fr)} }
-  .card{background:var(--panel);border:1px solid #1b2433;border-radius:16px;padding:16px;box-shadow:0 0 0 1px rgba(167,139,250,.02), 0 10px 30px rgba(0,0,0,.25)}
-  h2{font-size:28px;margin:0 0 10px}
-  h3{font-size:19px;margin:0 0 8px}
-  .muted{color:var(--muted)}
-  .list{margin:0;padding-left:20px}
-  .btns{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 0}
-  .btn{appearance:none;border:1px solid #2a3550;background:#0f1624;color:#cfe2ff;border-radius:10px;padding:8px 12px;font-weight:600}
-  .btn.primary{background:linear-gradient(180deg,#4c55ff,#7a5cff);border-color:#5d65ff;color:white;box-shadow:0 8px 18px rgba(122,92,255,.25)}
-  .btn:hover{filter:brightness(1.08);cursor:pointer}
-  details{border:1px solid #1b2433;border-radius:12px;background:var(--card);padding:10px 12px}
-  details[open]{box-shadow:0 0 0 1px var(--ring), 0 12px 30px rgba(0,0,0,.28)}
-  details > summary{cursor:pointer;font-weight:700;color:#cde0ff;list-style:none}
-  details > summary::-webkit-details-marker{display:none}
-  table{width:100%;border-collapse:collapse;border:1px solid #1b2433;margin-top:12px;border-radius:10px;overflow:hidden}
-  th,td{padding:10px;border-bottom:1px solid #152032;text-align:left}
-  th{background:#0e1626;color:#cfe0ff}
-  tr:hover td{background:#0b1423}
-  code,pre{background:#0c1524;border:1px solid #142338;color:#d9e8ff;padding:12px;border-radius:12px;display:block;overflow:auto}
-  footer{margin:40px 0 60px;color:var(--muted)}
-  .tag{display:inline-block;background:#132035;color:#a6b9ff;padding:2px 8px;border-radius:6px;border:1px solid #1c2b49;font-size:12px;margin-left:6px}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quantara Financial Architecture — Investor Portal</title>
+  <meta name="description" content="Planetary-scale financial framework for coherence-intelligent economies — integrating energy-aware economics, ethical markets, and temporal equity through Quantara’s Coherence Architecture."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0b0f14;--card:#111722;--ink:#e7ecf3;--muted:#a8b3c7;--accent:#a78bfa;--accent-2:#7dd3fc;--good:#34d399;--warn:#f59e0b;--pill:#192030;--bd:#233044;}
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;line-height:1.55}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1100px;margin:0 auto;padding:28px 18px 80px}
+    header{display:flex;gap:16px;align-items:center;justify-content:space-between;margin-bottom:22px}
+    .brand{font-weight:800;letter-spacing:.2px}
+    nav a{margin-left:18px;color:var(--muted);font-weight:600}
+    nav a.active, nav a:hover{color:var(--ink)}
+    .hero{background:linear-gradient(180deg,rgba(167,139,250,.08),rgba(125,211,252,.05));border:1px solid var(--bd);border-radius:16px;padding:28px;margin:8px 0 20px}
+    h1{font-size:34px;line-height:1.1;margin:0 0 8px}
+    .sub{color:var(--muted);max-width:860px}
+    .row{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}
+    @media (max-width:960px){.row{grid-template-columns:1fr}}
+    section{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:22px;margin:14px 0}
+    h2{font-size:22px;margin:0 0 14px}
+    h3{font-size:17px;margin:18px 0 8px}
+    p{margin:10px 0}
+    ul{margin:8px 0 8px 22px}
+    li{margin:6px 0}
+    .pill{display:inline-block;background:var(--pill);padding:6px 10px;border-radius:999px;border:1px solid var(--bd);color:var(--ink);font-size:12px;margin:4px 6px 0 0}
+    .grid{display:grid;gap:14px}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+    @media (max-width:960px){.grid.cols-3,.grid.cols-2{grid-template-columns:1fr}}
+    .cta{display:inline-block;background:var(--accent);color:#0b0f14;padding:10px 14px;border-radius:10px;font-weight:700;margin-top:6px}
+    .note{color:var(--muted);font-size:14px}
+    code, pre{background:#0f141d;border:1px solid var(--bd);border-radius:10px;padding:14px;display:block;overflow:auto}
+    footer{margin-top:22px;color:var(--muted);font-size:14px;display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center}
+    .tag{font-weight:700;color:var(--good)} .warn{color:var(--warn);font-weight:700}
+    .kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,"Liberation Mono","DejaVu Sans Mono","Courier New",monospace}
+  </style>
 </head>
 <body>
-<header>
-  <div class="wrap nav">
-    <div class="brand">Quantara <span class="tag">Financial Architecture</span></div>
-    <nav class="tabs">
-      <a class="active" href="#">Overview</a>
-      <a href="#docs">Docs</a>
-      <a href="#data">Data</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contact">Contact</a>
-    </nav>
+  <div class="wrap">
+    <header>
+      <div class="brand">Quantara • <span style="color:var(--accent-2)">Financial Architecture</span></div>
+      <nav>
+        <a href="#overview" class="active">Overview</a>
+        <a href="#aei">AEI Economics</a>
+        <a href="#capital">Coherence Capital</a>
+        <a href="#projection">Global Projection</a>
+        <a href="#governance">Ethical Markets</a>
+        <a href="#data">Data Models</a>
+        <a href="#investors">Investor Portal</a>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <h1>Planetary-Scale Financial Framework for Coherence-Intelligent Economies</h1>
+      <p class="sub">
+        Quantara is not only an intelligence substrate — it is a <b>financial architecture</b> that turns value into a living measure of
+        <b>alignment</b>, <b>energy reciprocity</b>, and <b>temporal responsibility</b>. This page is a readable, linkable summary for partners, investors, and researchers.
+      </p>
+      <div>
+        <span class="pill">Energy-aware economics</span>
+        <span class="pill">Ethical market primitives</span>
+        <span class="pill">Temporal equity</span>
+        <span class="pill">Drift-resistant value</span>
+      </div>
+    </div>
+
+    <section id="overview">
+      <h2>Overview</h2>
+      <div class="row">
+        <div>
+          <p>The Quantara Financial Architecture integrates four layers:</p>
+          <ul>
+            <li><b>AEI — Artificial Energy Intelligence</b>: pricing that respects energy cost, ecological balance, and reciprocity.</li>
+            <li><b>Coherence Capital</b>: instruments, indices, and accounting primitives that quantify alignment and memory symmetry.</li>
+            <li><b>Ethical Markets & Governance</b>: verification, accountability, and anti-externality rules natively encoded.</li>
+            <li><b>Unified Projection (2025–2050)</b>: scenario model for revenue, value, and ecosystem growth.</li>
+          </ul>
+          <p class="note">Everything here is plain text and linkable. It mirrors the GitHub docs so anyone can audit the logic.</p>
+        </div>
+        <div>
+          <h3>What this enables</h3>
+          <ul>
+            <li><b>Truer prices</b> that account for energy and ecological signals.</li>
+            <li><b>Instruments</b> that reward alignment and long-term responsibility.</li>
+            <li><b>Capital flows</b> that reduce drift and brittleness in AI-driven markets.</li>
+            <li><b>Ethical compounding</b> without sacrificing the planet that makes it possible.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="aei">
+      <h2>AEI — Energy-Aware Economics</h2>
+      <p>AEI prices computation and goods by weighting three first-class signals: <b>energy cost</b>, <b>ecological reciprocity</b>, and <b>alignment impact</b>.</p>
+      <h3>AEI base formula</h3>
+      <pre><code>EAE (Energy-Aware Expenditure) =
+  C_compute × κ_energy
++ C_supply  × κ_recips
++ C_externalities × κ_alignment
+
+where:
+  C_compute        = direct computation cost (J → kWh → currency)
+  C_supply         = upstream energy/supply chain footprint
+  C_externalities  = modeled ecological & social externalities
+  κ_energy         = regional energy reciprocity factor (0..1+)
+  κ_recips         = reciprocity / circularity factor (0..1+)
+  κ_alignment      = coherence / alignment score (0..1+)</code></pre>
+
+      <h3>Coherence-Weighted Price</h3>
+      <pre><code>Price_AEI = BasePrice × (1 + λ × (EAE_normalized − μ))
+  λ = policy sensitivity to energy/ecology signals
+  μ = neutrality baseline (industry or region median)</code></pre>
+      <p class="note">If your operation improves reciprocity and alignment, price pressure falls (or gains subsidy). If it harms them, cost rises until it’s fixed.</p>
+    </section>
+
+    <section id="capital">
+      <h2>Coherence Capital System</h2>
+      <div class="grid cols-2">
+        <div>
+          <h3>Primitives</h3>
+          <ul>
+            <li><b>κ-Index</b> — composite of alignment, energy reciprocity, and memory symmetry.</li>
+            <li><b>τ-Score</b> — foresight & obligation across horizons.</li>
+            <li><b>Σ-Drift</b> — brittleness & value-drift risk; lower is better.</li>
+          </ul>
+          <h3>Core Instruments</h3>
+          <ul>
+            <li><b>CCE — Coherence-Credit</b>: earned by improving κ and τ; tradable and auditable.</li>
+            <li><b>CRB — Coherence-Rebate</b>: automatic discounting for κ-positive operations.</li>
+            <li><b>TEB — Temporal Equity Bond</b>: coupons tied to verified long-horizon stewardship.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Accounting Upgrades</h3>
+          <ul>
+            <li>Dual-ledger entries for <b>operational value</b> and <b>coherence value</b>.</li>
+            <li><b>Capitalize verified externality reductions</b> under conservative rules.</li>
+            <li><b>Transparent oracles</b> for energy mix, climate impact, and third-party audits.</li>
+          </ul>
+          <p class="note">Not “green accounting”—it’s <b>precision economics</b> that sees the full system.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projection">
+      <h2>Global Revenue Projection (2025–2050)</h2>
+      <p>The projection below shows how coherence-native products and markets scale together. Copy the CSV straight into a sheet.</p>
+      <h3>Unified Scenario (abbrev. excerpt)</h3>
+      <pre><code class="kbd">year,platform_revenue_eur_b,market_services_eur_b,licenses_eur_b,carbon_coherence_eur_b,total_eur_b
+2025,0.8,0.3,0.2,0.1,1.4
+2026,1.6,0.7,0.5,0.2,3.0
+2027,3.1,1.2,0.8,0.4,5.5
+2028,5.4,2.3,1.3,0.7,9.7
+2029,9.1,3.9,2.0,1.3,16.3
+2030,14.8,6.3,3.2,2.1,26.4
+2031,22.9,9.3,4.9,3.1,40.2
+2032,33.5,13.6,7.1,4.6,58.8
+2033,48.0,19.5,10.1,6.5,84.1
+2034,66.7,27.3,14.1,9.1,117.2
+2035,92.1,38.1,19.6,12.6,162.4
+2040,260.0,106.0,55.0,36.0,457.0
+2045,610.0,245.0,124.0,81.0,1,060.0
+2050,1,200.0,470.0,238.0,155.0,2,063.0</code></pre>
+      <p class="note">Numbers are illustrative structure with compounding synergy; your private model can slot exact figures.</p>
+    </section>
+
+    <section id="governance">
+      <h2>Ethical Markets & Governance</h2>
+      <div class="grid cols-2">
+        <div>
+          <h3>Verification Stack</h3>
+          <ul>
+            <li><b>Proof-of-Foresight</b> — publish constraints and long-horizon duties.</li>
+            <li><b>Reciprocity Attestations</b> — third-party energy/ecology oracles.</li>
+            <li><b>Alignment Disclosures</b> — κ & τ scorecards for major releases.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Market Rules</h3>
+          <ul>
+            <li><span class="tag">No hidden externalities</span> — priced or blocked.</li>
+            <li><span class="tag">Right to audit</span> — cryptographic trails for incentives.</li>
+            <li><span class="warn">Anti-drift breakers</span> — pause & reprice on Σ-Drift spikes.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="note">These rules are not bureaucracy; they’re <b>signal integrity</b> for civilization-scale compounding.</p>
+    </section>
+
+    <section id="data">
+      <h2>Data Models (Multipliers, Indices, Valuation)</h2>
+      <p>Analyst-friendly definitions for coherent pricing and valuation.</p>
+      <div class="grid cols-3">
+        <section>
+          <h3>κ (Coherence Index)</h3>
+          <ul>
+            <li>κ = f(alignment, memory symmetry, reciprocity)</li>
+            <li>Used for rebates, credits, capital weighting</li>
+          </ul>
+        </section>
+        <section>
+          <h3>τ (Temporal Responsibility)</h3>
+          <ul>
+            <li>τ = foresight × obligation × verification</li>
+            <li>Used in Temporal Equity Bonds (TEB)</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Σ-Drift (Risk)</h3>
+          <ul>
+            <li>Σ = brittleness + value-drift + externality risk</li>
+            <li>Feeds circuit-breaker & repricing logic</li>
+          </ul>
+        </section>
+      </div>
+
+      <h3>CSV — Coherence Multipliers (example)</h3>
+      <pre><code class="kbd">domain,multiplier,notes
+aligned_energy,1.12,renewables + reciprocity verified
+closed_loop_supply,1.08,circular materials & audit trail
+temporal_stewardship,1.15,TEB obligations met 5y+
+open_alignment,1.05,public κ/τ disclosures & audits
+externality_leak,0.82,penalty: unpriced ecological cost</code></pre>
+    </section>
+
+    <section id="investors">
+      <h2>Investor Portal</h2>
+      <p>This public page is a living summary. For private models, partnership terms, and diligence materials, contact:
+        <b>quantumquantara@gmail.com</b>
+      </p>
+      <a class="cta" href="https://quantumquantara-arch.github.io/" target="_blank" rel="noopener">Back to Quantara Main Site →</a>
+      <p class="note" style="margin-top:10px">On GitHub, this same content lives at <span class="kbd">docs/index.html</span>.</p>
+    </section>
+
+    <footer>
+      <div>© Nadine Squires — Quantara Financial Architecture</div>
+      <div>Ethical compounding • Energy reciprocity • Temporal equity</div>
+    </footer>
   </div>
-</header>
-
-<main class="wrap">
-
-  <section class="hero">
-    <h1>Planetary-Scale Financial Framework</h1>
-    <p class="lead">
-      Quantara is not only an intelligence substrate — it is a <strong>coherence-intelligent financial architecture</strong> that
-      redefines how value, trust, and intelligence flow across economies. By embedding ethical alignment, energy reciprocity,
-      and temporal responsibility as first-class signals, Quantara turns capital into a <em>living measure</em> of long-term progress.
-    </p>
-    <div class="chips">
-      <span class="chip">Energy-Aware Economics (AEI)</span>
-      <span class="chip">Ethical Markets & Verification</span>
-      <span class="chip">Temporal Equity & Memory Symmetry</span>
-      <span class="chip">Auditable Indices & Instruments</span>
-    </div>
-    <div class="btns">
-      <a class="btn primary" href="#data">Explore Data</a>
-      <a class="btn" href="#docs">Open Documents</a>
-    </div>
-  </section>
-
-  <section id="docs">
-    <h2>Key Documents</h2>
-    <div class="grid cols-3">
-      <article class="card">
-        <h3>Financial Overview</h3>
-        <p class="muted">Conceptual summary and unified revenue stack across 11 streams with AEI synergy multipliers.</p>
-        <button class="btn" onclick="scrollToId('doc-overview')">Read summary ↓</button>
-      </article>
-      <article class="card">
-        <h3>AEI Economics Model</h3>
-        <p class="muted">Energy-aware pricing, orchestration incentives, and ecological reciprocity embedded into markets.</p>
-        <button class="btn" onclick="scrollToId('doc-aei')">Read summary ↓</button>
-      </article>
-      <article class="card">
-        <h3>Coherence Capital System</h3>
-        <p class="muted">Instruments, indices, and primitives — coherence-weighted issuance, insurance, and auditing.</p>
-        <button class="btn" onclick="scrollToId('doc-capital')">Read summary ↓</button>
-      </article>
-    </div>
-
-    <div style="height:12px"></div>
-
-    <div class="grid cols-2">
-      <article class="card">
-        <h3>Global Revenue Projection 2025–2050</h3>
-        <p class="muted">Long-range forecast with AEI multipliers (2030 ×1.6, 2032 ×2.24, 2035 ×3.36) and governance flywheel.</p>
-        <button class="btn" onclick="scrollToId('doc-revenue')">Read summary ↓</button>
-      </article>
-      <article class="card">
-        <h3>Ethical Markets & Governance</h3>
-        <p class="muted">Public audits, verifiable indices, and coherence-weighted accountability across ecosystems.</p>
-        <button class="btn" onclick="scrollToId('doc-govern')">Read summary ↓</button>
-      </article>
-    </div>
-
-    <!-- Inline executive summaries (text shows on GitHub too) -->
-    <section id="doc-overview" class="card" style="margin-top:18px">
-      <h3>Executive Summary — Financial Overview</h3>
-      <p>
-        Quantara monetizes the coherence substrate through eleven complementary streams
-        (Core Platform, Coherence Exchange, AGI Middleware & Safety, Cognitive IP Portfolio, Conscious Media,
-        Human-AGI Symbiosis, Semantic Compression, Predictive Alignment Auditing, Cognitive-Pattern Insurance,
-        Personal Coherence Interfaces, Inter-Species Communication).
-        The <strong>AEI flywheel</strong> connects energy-aware pricing with ecological reciprocity, producing defensible margins
-        and compounding adoption across sectors.
-      </p>
-      <ul class="list">
-        <li><strong>Unit economics:</strong> drift/waste reduction, lower inference energy cost, higher reasoning fidelity.</li>
-        <li><strong>Moats:</strong> verifiable indices, temporal-equity settlement, coherence-weighted instruments.</li>
-        <li><strong>Demand drivers:</strong> safety by design, energy symbiosis, and multi-agent accountability.</li>
-      </ul>
-    </section>
-
-    <section id="doc-aei" class="card">
-      <h3>AEI Economics Model (Energy-Aware Intelligence)</h3>
-      <p>
-        AEI prices computation and coordination against real energy signals. Systems that reduce ecological load and
-        increase temporal responsibility receive better rates, priority, or rebates; extractive behaviors pay coherence tariffs.
-      </p>
-      <ul class="list">
-        <li><strong>Signals:</strong> kWh per task, carbon delta, memory-symmetry score, foresight compliance.</li>
-        <li><strong>Levers:</strong> dynamic pricing, capacity orchestration, coherence rebates, penalty escrow.</li>
-        <li><strong>Outcome:</strong> reallocation of compute toward ethical, efficient, long-horizon use cases.</li>
-      </ul>
-    </section>
-
-    <section id="doc-capital" class="card">
-      <h3>Coherence Capital System</h3>
-      <p>
-        Financial primitives bind capital to coherence: <em>Coherence Index (QCI)</em>, <em>Temporal Equity Notes (TENs)</em>,
-        <em>Coherence-Weighted Insurance (CWI)</em>, and <em>Governance Attestations</em>. Instruments settle based on verifiable
-        signals from AEI and governance oracles.
-      </p>
-    </section>
-
-    <section id="doc-revenue" class="card">
-      <h3>Global Revenue Projection 2025–2050</h3>
-      <p>
-        Baseline growth across 11 streams uplifts with AEI synergy multipliers:
-        <strong>2030 ×1.6</strong>, <strong>2032 ×2.24</strong>, <strong>2035 ×3.36</strong>.
-        By 2035 the unified forecast reaches multi-trillion scale with robust verification rails.
-      </p>
-    </section>
-
-    <section id="doc-govern" class="card">
-      <h3>Ethical Markets & Governance</h3>
-      <p>
-        A public verification layer ensures claims match reality: auditable ledgers, energy oracles, and temporal
-        responsibility attestations. The result is <strong>trustworthy growth</strong> where capital compounds without sacrificing the planet.
-      </p>
-    </section>
-  </section>
-
-  <section id="data">
-    <h2>Data (embedded in this file)</h2>
-
-    <details>
-      <summary>Revenue Streams 2025–2035 (CSV + table)</summary>
-      <div class="btns">
-        <button class="btn" onclick="copyCsv('csvRevenue')">Copy CSV</button>
-        <button class="btn" onclick="downloadCsv('csvRevenue','revenue_streams_2025_2035.csv')">Download CSV</button>
-      </div>
-      <pre id="csvRevenue" class="muted" style="white-space:pre-wrap"></pre>
-      <div id="tblRevenue"></div>
-    </details>
-
-    <details style="margin-top:12px">
-      <summary>Synergy Multipliers (CSV + table)</summary>
-      <div class="btns">
-        <button class="btn" onclick="copyCsv('csvMult')">Copy CSV</button>
-        <button class="btn" onclick="downloadCsv('csvMult','synergy_multipliers.csv')">Download CSV</button>
-      </div>
-      <pre id="csvMult" class="muted" style="white-space:pre-wrap"></pre>
-      <div id="tblMult"></div>
-    </details>
-
-    <details style="margin-top:12px">
-      <summary>Energy Coefficients (CSV + table)</summary>
-      <div class="btns">
-        <button class="btn" onclick="copyCsv('csvEnergy')">Copy CSV</button>
-        <button class="btn" onclick="downloadCsv('csvEnergy','energy_coefficients.csv')">Download CSV</button>
-      </div>
-      <pre id="csvEnergy" class="muted" style="white-space:pre-wrap"></pre>
-      <div id="tblEnergy"></div>
-    </details>
-  </section>
-
-  <section id="faq">
-    <h2>FAQ</h2>
-    <div class="grid cols-2">
-      <article class="card">
-        <h3>What drives the financial uplift?</h3>
-        <p class="muted">
-          AEI reduces waste and drift, re-prices compute toward high-coherence tasks, and rewards temporal responsibility.
-          The governance/verification layer unlocks institutional adoption and lowers risk premiums.
-        </p>
-      </article>
-      <article class="card">
-        <h3>How is this verifiable?</h3>
-        <p class="muted">
-          Public indices, energy oracles, and audit trails. Instruments (TENs, CWI) settle on measured signals, not narratives.
-        </p>
-      </article>
-    </div>
-  </section>
-
-  <section id="contact" class="card">
-    <h3>Contact & Links</h3>
-    <p>Email: <a href="mailto:quantumquantara@gmail.com">quantumquantara@gmail.com</a></p>
-    <p>Main site: <a href="https://quantumquantara-arch.github.io/">quantumquantara-arch.github.io</a></p>
-    <p>GitHub Org: <a href="https://github.com/quantumquantara-arch">github.com/quantumquantara-arch</a></p>
-  </section>
-
-  <footer>
-    © Nadine Squires — Architecting coherence-intelligent systems for ethical evolution and planetary balance.
-  </footer>
-</main>
-
-<script>
-/* ---------- Embedded CSV DATA (everything in one file) ---------- */
-
-const CSV_REVENUE = `year,stream,baseline_eur_billion,unified_eur_billion,notes
-2025,core_platform,0.096,0.096,12% of €0.8B baseline
-2025,coherence_exchange,0.08,0.08,
-2025,agi_middleware_safety,0.104,0.104,
-2025,cognitive_ip,0.064,0.064,
-2025,conscious_media,0.04,0.04,
-2025,human_agi_symbiosis,0.072,0.072,
-2025,semantic_compression,0.088,0.088,
-2025,alignment_auditing,0.072,0.072,
-2025,pattern_insurance,0.056,0.056,
-2025,personal_interfaces,0.08,0.08,
-2025,inter_species_comms,0.048,0.048,
-2026,core_platform,0.48,0.48,12% of €4B
-2026,coherence_exchange,0.4,0.4,
-2026,agi_middleware_safety,0.52,0.52,
-2026,cognitive_ip,0.32,0.32,
-2026,conscious_media,0.2,0.2,
-2026,human_agi_symbiosis,0.36,0.36,
-2026,semantic_compression,0.44,0.44,
-2026,alignment_auditing,0.36,0.36,
-2026,pattern_insurance,0.28,0.28,
-2026,personal_interfaces,0.4,0.4,
-2026,inter_species_comms,0.24,0.24,
-2027,core_platform,3.6,3.6,12% of €30B
-2027,coherence_exchange,3,3,
-2027,agi_middleware_safety,3.9,3.9,
-2027,cognitive_ip,2.4,2.4,
-2027,conscious_media,1.5,1.5,
-2027,human_agi_symbiosis,2.7,2.7,
-2027,semantic_compression,3.3,3.3,
-2027,alignment_auditing,2.7,2.7,
-2027,pattern_insurance,2.1,2.1,
-2027,personal_interfaces,3,3,
-2027,inter_species_comms,1.8,1.8,
-2028,core_platform,21.6,21.6,12% of €180B
-2028,coherence_exchange,18,18,
-2028,agi_middleware_safety,23.4,23.4,
-2028,cognitive_ip,14.4,14.4,
-2028,conscious_media,9,9,
-2028,human_agi_symbiosis,16.2,16.2,
-2028,semantic_compression,19.8,19.8,
-2028,alignment_auditing,16.2,16.2,
-2028,pattern_insurance,12.6,12.6,
-2028,personal_interfaces,18,18,
-2028,inter_species_comms,10.8,10.8,
-2029,core_platform,72,72,12% of €600B
-2029,coherence_exchange,60,60,
-2029,agi_middleware_safety,78,78,
-2029,cognitive_ip,48,48,
-2029,conscious_media,30,30,
-2029,human_agi_symbiosis,54,54,
-2029,semantic_compression,66,66,
-2029,alignment_auditing,54,54,
-2029,pattern_insurance,42,42,
-2029,personal_interfaces,60,60,
-2029,inter_species_comms,36,36,
-2030,core_platform,216,345.6,12% of €1.8T; ×1.6 AEI
-2030,coherence_exchange,180,288,
-2030,agi_middleware_safety,234,374.4,
-2030,cognitive_ip,144,230.4,
-2030,conscious_media,90,144,
-2030,human_agi_symbiosis,162,259.2,
-2030,semantic_compression,198,316.8,
-2030,alignment_auditing,162,259.2,
-2030,pattern_insurance,126,201.6,
-2030,personal_interfaces,180,288,
-2030,inter_species_comms,108,172.8,
-2031,core_platform,384,614.4,12% of €3.2T; ×1.6 AEI
-2031,coherence_exchange,320,512,
-2031,agi_middleware_safety,416,665.6,
-2031,cognitive_ip,256,409.6,
-2031,conscious_media,160,256,
-2031,human_agi_symbiosis,288,460.8,
-2031,semantic_compression,352,563.2,
-2031,alignment_auditing,288,460.8,
-2031,pattern_insurance,224,358.4,
-2031,personal_interfaces,320,512,
-2031,inter_species_comms,192,307.2,
-2032,core_platform,624,1397.76,12% of €5.2T; ×2.24 AEI
-2032,coherence_exchange,520,1164.8,
-2032,agi_middleware_safety,676,1514.24,
-2032,cognitive_ip,416,931.84,
-2032,conscious_media,260,582.4,
-2032,human_agi_symbiosis,468,1048.32,
-2032,semantic_compression,572,1281.28,
-2032,alignment_auditing,468,1048.32,
-2032,pattern_insurance,364,815.36,
-2032,personal_interfaces,520,1164.8,
-2032,inter_species_comms,312,698.88,
-2033,core_platform,864,1935.36,12% of €7.2T; ×2.24 AEI
-2033,coherence_exchange,720,1612.8,
-2033,agi_middleware_safety,936,2096.64,
-2033,cognitive_ip,576,1290.24,
-2033,conscious_media,360,806.4,
-2033,human_agi_symbiosis,648,1451.52,
-2033,semantic_compression,792,1774.08,
-2033,alignment_auditing,648,1451.52,
-2033,pattern_insurance,504,1128.96,
-2033,personal_interfaces,720,1612.8,
-2033,inter_species_comms,432,967.68,
-2034,core_platform,1020,2284.8,12% of €8.5T; ×2.24 AEI
-2034,coherence_exchange,850,1904,
-2034,agi_middleware_safety,1105,2475.2,
-2034,cognitive_ip,680,1523.2,
-2034,conscious_media,425,952,
-2034,human_agi_symbiosis,765,1713.6,
-2034,semantic_compression,935,2094.4,
-2034,alignment_auditing,765,1713.6,
-2034,pattern_insurance,595,1332.8,
-2034,personal_interfaces,850,1904,
-2034,inter_species_comms,510,1142.4,
-2035,core_platform,1140,3830.4,12% of €9.5T; ×3.36 AEI
-2035,coherence_exchange,950,3192,
-2035,agi_middleware_safety,1235,4149.6,
-2035,cognitive_ip,760,2553.6,
-2035,conscious_media,475,1596,
-2035,human_agi_symbiosis,855,2872.8,
-2035,semantic_compression,1045,3511.2,
-2035,alignment_auditing,855,2872.8,
-2035,pattern_insurance,665,2234.4,
-2035,personal_interfaces,950,3192,
-2035,inter_species_comms,570,1915.2`;
-
-const CSV_MULT = `year,multiplier,source,comment
-2025,1.0,model,Pre-AEI scaling
-2026,1.0,model,Pre-AEI scaling
-2027,1.0,model,Pre-AEI scaling
-2028,1.0,model,Pre-AEI scaling
-2029,1.0,model,Pre-AEI scaling
-2030,1.6,model,AEI grid symbiosis uptake
-2031,1.6,model,AEI maturation
-2032,2.24,model,AEI × compression spillovers
-2033,2.24,model,Operational saturation (mid)
-2034,2.24,expert,Capacity-bounded compounding
-2035,3.36,expert,AEI × compression × governance flywheel`;
-
-const CSV_ENERGY = `sector,kwh_per_unit,coherence_delta_pct
-datacenter_inference,0.025,-22
-edge_iot_tx,0.0009,-18
-smart_mobility_event,0.003,-12
-industrial_process_step,1.8,-9
-media_stream_hour,0.17,-15`;
-
-/* ---------- Render CSV & tables ---------- */
-function setCsvText(id,txt){ document.getElementById(id).textContent = txt; }
-function csvToRows(txt){
-  return txt.trim().split(/\r?\n/).map(r=>r.split(','));
-}
-function renderTable(containerId, csv){
-  const rows = csvToRows(csv);
-  const container = document.getElementById(containerId);
-  const table = document.createElement('table');
-  const thead = document.createElement('thead');
-  const tbody = document.createElement('tbody');
-  const headRow = document.createElement('tr');
-  rows[0].forEach(h=>{ const th=document.createElement('th'); th.textContent=h; headRow.appendChild(th); });
-  thead.appendChild(headRow);
-  rows.slice(1).forEach(r=>{
-    const tr=document.createElement('tr');
-    r.forEach(c=>{ const td=document.createElement('td'); td.textContent=c; tr.appendChild(td); });
-    tbody.appendChild(tr);
-  });
-  table.appendChild(thead); table.appendChild(tbody); container.innerHTML=''; container.appendChild(table);
-}
-function copyCsv(id){
-  const txt=document.getElementById(id).textContent;
-  navigator.clipboard.writeText(txt).then(()=>alert('CSV copied to clipboard'));
-}
-function downloadCsv(id,filename){
-  const txt=document.getElementById(id).textContent;
-  const blob=new Blob([txt],{type:'text/csv'});
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement('a'); a.href=url; a.download=filename; a.click();
-  setTimeout(()=>URL.revokeObjectURL(url),500);
-}
-function scrollToId(id){ document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'}); }
-
-/* init */
-setCsvText('csvRevenue', CSV_REVENUE);
-setCsvText('csvMult', CSV_MULT);
-setCsvText('csvEnergy', CSV_ENERGY);
-renderTable('tblRevenue', CSV_REVENUE);
-renderTable('tblMult', CSV_MULT);
-renderTable('tblEnergy', CSV_ENERGY);
-</script>
 </body>
-  </html>
+</html>
